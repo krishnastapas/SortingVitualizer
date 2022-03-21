@@ -1,0 +1,32 @@
+.element {
+    all: none;
+  }
+/* div contains middle contain of app */
+  .middleContain{
+      border-style: solid;
+      
+      height: 650px;
+  
+  }
+ /* contains array bars */
+  .array-container{
+    height:550px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content:space-around ;
+    align-items: flex-end;
+    border-style:solid ;
+    margin:2% 5% 2% 5%;
+    overflow: auto;
+    
+}
+/* each array-bar */
+.array-bar{
+    width: 10px;
+    background-color: rgb(83, 194, 68);
+    /* display: inline-block;
+    margin: 0 2px;
+    bottom: 0px; */
+    
+}
