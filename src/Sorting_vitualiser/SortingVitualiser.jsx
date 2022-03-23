@@ -3,6 +3,7 @@ import React from 'react'
 import './SortingVitualiser.css'
 
 import { MergeSortAnimaton } from '../SortingAlgorithm/MergeSortAlgo';
+import { BubbleSortAnimation } from '../SortingAlgorithm/BubbleSortAlgo';
 
 // const [arraySize, setarraySize] = useState(500);
 
@@ -10,7 +11,7 @@ export default class SortingVitualiser extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      array: [], arraySize:200,
+      array: [], arraySize:20,
     };
   }
 
@@ -38,7 +39,7 @@ export default class SortingVitualiser extends React.Component {
         const [barOneIdx,barTwoIdx]=animations[i];
         const barOneSytle=arrayBars[barOneIdx].style;
         const barTwoStyle=arrayBars[barTwoIdx].style;
-        const color=i%3===0?"red":"aqua";
+        const color=i%3===0?"red":"green";
         
         setTimeout(() => {
           // const [barOneIdx,newHeight]=animations[i];
@@ -69,6 +70,50 @@ export default class SortingVitualiser extends React.Component {
   }
   // bubble Sort animation
   bubbleSort(){
+    // const javaScriptSortedArray=this.state.array.slice().sort((a,b)=>a-b);
+    const animations=BubbleSortAnimation(this.state.array);
+    // console.log(isArraysEqual(this.state.array,javaScriptSortedArray));
+    for(let i=0;i<animations.length;i++)
+    {
+      if(i%4===3)
+         continue;
+      const arrayBars=document.getElementsByClassName('array-bar');
+      const iscolorchange=i%4!==2;
+      if(iscolorchange){
+        
+        const [barOneIdx,barTwoIdx]=animations[i];
+        const barOneSytle=arrayBars[barOneIdx].style;
+        const barTwoStyle=arrayBars[barTwoIdx].style;
+        const color=i%4===0?"red":"green";
+        
+        setTimeout(() => {
+          // const [barOneIdx,newHeight]=animations[i];
+          barOneSytle.backgroundColor=color;
+          barTwoStyle.backgroundColor=color;
+
+
+          
+        }, i*5);
+
+      }
+      // else{
+        
+      //   setTimeout(() => {
+      //     const [barOneIdx,Height1]=animations[i];
+      //     const barOneStyle=arrayBars[barOneIdx].style;
+          
+      //     const [barTwoIdx,Height2]=animations[i+1];
+      //     const barTwoStyle=arrayBars[barTwoIdx].style;
+      //     // const tempbar=barTwoSytle;
+      //     barOneStyle.height=`${Height2}px`;
+      //     barTwoStyle.height=`${Height1}px`;
+
+      //     // barOneSytle.backgroundColor="green";
+          
+      //   }, i*5);
+      // }
+
+    }
 
   }
   // heapSort animation
@@ -98,7 +143,9 @@ export default class SortingVitualiser extends React.Component {
              this.setState({arraySize})
            }}></input>
           <button onClick={() => this.resetArray()}>Generate New Array</button>
-          <button onClick={()=>this.mergeSort()}>MergeSort</button>
+          <button onClick={()=>this.mergeSort()}>Merge Sort</button>
+          <button onClick={()=>this.bubbleSort()}>Bubble Sort</button>
+
         </div>
         
       </div>
@@ -110,4 +157,13 @@ export default class SortingVitualiser extends React.Component {
 // it can generate duplicate element
 function randomIntFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
+}
+function isArraysEqual(arrayOne,arrayTwo){
+  if(arrayOne.length!==arrayTwo.length) return false;
+  let n=arrayOne.length;
+  for(let i=0;i<n;i++)
+  {
+    if(arrayOne[i]!==arrayTwo[i]) return false;
+  }
+  return true;
 }
