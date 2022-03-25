@@ -1,9 +1,70 @@
 .element {
     all: none;
   }
+  .navbar{
+    /* border-style: solid; */
+    display: flex;
+    height: 60px;
+    justify-content: baseline;
+    background-color: rgba(168, 211, 231, 0.699);
+    
+  }
+  
+  
+  .Logodiv{
+    
+    /* position: absolute; */
+    
+    flex:60%;
+    
+  }
+  img{
+    float: left;
+  }
+  .buttons-div{
+  
+    flex:40%;
+    /* justify-content: center; */
+    /* justify-content: space-around; */
+    
+    padding-top: 5px;
+    padding-bottom:5px ;
+    /* border-style: solid; */
+    display: flex;
+    /* flex-wrap: wrap; */
+  }
+  .ArraySizeInput{
+    /* border-style: solid; */
+    float:right;
+    flex:20%;
+    order: 1;
+    width: 6px;
+    padding-top: 10px;
+
+  }
+  .AnimationTimeInput{
+    /* border-style: solid; */
+    padding-top: 10px;
+    flex:20%;
+    order:2;
+    
+  }
+  .GenerateNewArrayBtn{
+    border-style: solid;
+   flex:20%;
+   order:3;
+   
+   margin: 4px 5px 4px 5px;
+   border-radius: 5px;
+   width: 100px;
+  }
+ input{
+   width:40px;
+   border-radius: 5px;
+ }
 /* div contains middle contain of app */
   .middleContain{
-      border-style: solid;
+    /* border-style: solid; */
       
       height: 650px;
   
@@ -16,17 +77,28 @@
     justify-content: center;
     justify-content:space-around ;
     align-items: flex-end;
-    border-style:solid ;
-    margin:2% 5% 2% 5%;
+    /* border-style:solid ; */
+    /* border:0ch 0ch 0ch 0ch; */
+    margin:0% 5% 1% 5%;
     overflow: auto;
     
 }
 /* each array-bar */
 .array-bar{
     width: 10px;
-    background-color: rgb(83, 194, 68);
+    background-color: khaki;
     /* display: inline-block;
     margin: 0 2px;
     bottom: 0px; */
     
+}
+.sortBtn{
+  margin: 0%,;
+  display: flex;
+  justify-content: center;
+  /* justify-content: space-around; */
+}
+button:hover{
+  background-color: rgb(241, 193, 129);
+  cursor: pointer;
 }
