@@ -7,8 +7,8 @@ import { BubbleSortAnimation } from '../SortingAlgorithm/BubbleSortAlgo';
 import { QuickSortAnimation } from '../SortingAlgorithm/QuickSortAlgo';
 import { HeapSortAnimation } from '../SortingAlgorithm/HeapsortAlgo';
 
-let color1="";
-let color2="";
+let color1="#F5B63A";
+let color2="rgb(132 173 241)";
 
 
 export default class SortingVitualiser extends React.Component {
@@ -239,7 +239,7 @@ export default class SortingVitualiser extends React.Component {
           {/* time slider */}
           < div className="timeslider">
             <span> Time</span>
-            <input type="range"  min="0" max="30" class="slider" id="myRange" value={this.state.animationTime} onChange={(e) => {
+            <input type="range"  min="0" max="60" class="slider" id="myRange" value={this.state.animationTime} onChange={(e) => {
               const animationTime = e.target.value;
               this.setState({ animationTime })
             }}></input>
